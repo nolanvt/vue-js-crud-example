@@ -2,28 +2,78 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="nom">nom</label>
         <input
           type="text"
           class="form-control"
-          id="title"
+          id="nom"
           required
-          v-model="tutorial.title"
-          name="title"
+          v-model="tutorial.nom"
+          name="nom"
         />
       </div>
 
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="prenom">prenom</label>
         <input
           class="form-control"
-          id="description"
+          id="prenom"
           required
-          v-model="tutorial.description"
-          name="description"
+          v-model="tutorial.prenom"
+          name="prenom"
         />
       </div>
 
+      <div class="form-group">
+        <label for="adresse_mail">adresse_mail</label>
+        <input
+          class="form-control"
+          id="adresse_mail"
+          required
+          v-model="tutorial.adresse_mail"
+          name="adresse_mail"
+        />
+      </div>
+            <div class="form-group">
+        <label for="sex">sex</label>
+        <input
+          class="form-control"
+          id="sex"
+          required
+          v-model="tutorial.sex"
+          name="sex"
+        />
+      </div>
+            <div class="form-group">
+        <label for="adresse">adresse</label>
+        <input
+          class="form-control"
+          id="adresse"
+          required
+          v-model="tutorial.adresse"
+          name="adresse"
+        />
+      </div>
+            <div class="form-group">
+        <label for="prenom">age</label>
+        <input
+          class="form-control"
+          id="age"
+          required
+          v-model="tutorial.age"
+          name="age"
+        />
+      </div>
+            <div class="form-group">
+        <label for="activites">activites</label>
+        <input
+          class="form-control"
+          id="activites"
+          required
+          v-model="tutorial.activites"
+          name="activites"
+        />
+      </div>
       <button @click="saveTutorial" class="btn btn-success">Submit</button>
     </div>
 
@@ -43,9 +93,15 @@ export default {
     return {
       tutorial: {
         id: null,
-        title: "",
-        description: "",
-        published: false
+        nom: "",
+        prenom: "",
+        adresse_mail: "",
+        sex: "",
+        adresse: "",
+        travail: "",
+        age: "",
+        activites: "",
+
       },
       submitted: false
     };
@@ -53,8 +109,14 @@ export default {
   methods: {
     saveTutorial() {
       var data = {
-        title: this.tutorial.title,
-        description: this.tutorial.description
+        nom: this.tutorial.nom,
+        prenom: this.tutorial.prenom,
+        adresse_mail: this.tutorial.adresse_mail,
+        sex: this.tutorial.sex,
+        adresse: this.tutorial.adresse,
+        travail: this.tutorial.travail,
+        age: this.tutorial.age,
+        activites: this.tutorial.activites
       };
 
       TutorialDataService.create(data)

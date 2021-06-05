@@ -3,15 +3,15 @@
     <h4>Tutorial</h4>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title"
-          v-model="currentTutorial.title"
+        <label for="nom">nom</label>
+        <input type="text" class="form-control" id="nom"
+          v-model="currentTutorial.nom"
         />
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description"
-          v-model="currentTutorial.description"
+        <label for="prenom">prenom</label>
+        <input type="text" class="form-control" id="prenom"
+          v-model="currentTutorial.prenom"
         />
       </div>
 
@@ -79,8 +79,8 @@ export default {
     updatePublished(status) {
       var data = {
         id: this.currentTutorial.id,
-        title: this.currentTutorial.title,
-        description: this.currentTutorial.description,
+        nom: this.currentTutorial.nom,
+        prenom: this.currentTutorial.prenom,
         published: status
       };
 

@@ -2,11 +2,11 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by title"
-          v-model="title"/>
+        <input type="text" class="form-control" placeholder="Search by nom"
+          v-model="nom"/>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button"
-            @click="searchTitle"
+            @click="searchnom"
           >
             Search
           </button>
@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveTutorial(tutorial, index)"
         >
-          {{ tutorial.title }}
+          {{ tutorial.nom }}
         </li>
       </ul>
 
@@ -34,14 +34,12 @@
       <div v-if="currentTutorial">
         <h4>Tutorial</h4>
         <div>
-          <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+          <label><strong>nom:</strong></label> {{ currentTutorial.nom }}
         </div>
         <div>
-          <label><strong>Description:</strong></label> {{ currentTutorial.description }}
+          <label><strong>prenom:</strong></label> {{ currentTutorial.prenom }}
         </div>
-        <div>
-          <label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
-        </div>
+
 
         <router-link :to="'/tutorials/' + currentTutorial.id" class="badge badge-warning">Edit</router-link>
       </div>
@@ -63,7 +61,7 @@ export default {
       tutorials: [],
       currentTutorial: null,
       currentIndex: -1,
-      title: ""
+      nom: ""
     };
   },
   methods: {
@@ -100,8 +98,8 @@ export default {
         });
     },
     
-    searchTitle() {
-      TutorialDataService.findByTitle(this.title)
+    searchnom() {
+      TutorialDataService.findBynom(this.nom)
         .then(response => {
           this.tutorials = response.data;
           console.log(response.data);
